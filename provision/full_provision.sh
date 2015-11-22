@@ -18,10 +18,10 @@ else
 	echo "generate ssh key that have to be uploaded to github"
 fi
 
-if [ -d "/home/vagrant/workspace/devel/idea/idea-IU-135.909" ]; then
-    echo "skip idea 13 installation"
+if [ -d "/home/vagrant/workspace/devel/idea/idea-IU-141.1532.4" ]; then
+    echo "skip idea 14 installation"
 else
-	echo "idea 13 installation"
+	echo "idea 14 installation"
 fi
 
 if which cs >/dev/null; then
@@ -101,14 +101,14 @@ echo "wait for 10 seconds break with Ctrl-C"
 sleep 10
 echo "start installations"
 apt-get update -qq
-apt-get -f install 
+apt-get -f install
 
 # generate ssh keys replace it with your email address
 if [ -f /home/vagrant/.ssh/config ]; then
 	echo "skip generate ssh key"
 else
 	echo "generate ssh key that have to be uploaded to github"
-	ssh-keygen -t rsa -C "pussinboots666@googlemail.com"
+	ssh-keygen -t rsa -C "brokersquaredev@googlemail.com"
 	# solve the ssh github problem see https://help.github.com/articles/using-ssh-over-the-https-port#enabling-ssh-connections-over-https
 	echo "Host github.com
 	  Hostname ssh.github.com
@@ -127,15 +127,15 @@ sh /vagrant/provision/packages/createrepo.sh
 apt-get install htop
 # install git
 apt-get install git-core
-apt-get -f install 
+apt-get -f install
 
-sh /vagrant/provision/packages/idea13.sh
+sh /vagrant/provision/packages/idea14.sh
 sh /vagrant/provision/packages/sublime3.sh
 sh /vagrant/provision/packages/play223.sh
 
 # download sbt 0.13
 sh /vagrant/provision/packages/sbt.sh
-apt-get -f install 
+apt-get -f install
 
 sh /vagrant/provision/packages/heroku.sh
 
